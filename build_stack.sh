@@ -4,7 +4,7 @@ for url in $(grep -Eo 'source\s+=\s+"([^"]+)"' "$file_path" | awk -F'"' '{print 
   tag_number=$(echo "$url" | awk -F'=' '{print $2}')
   clean_url=$(echo "$url" | awk -F'::|?|//' '{print $2"//"$3}')
   echo "Cloning repository: $clean_url (Tag: $tag_number)"
-  git clone --branch "$tag_number" --single-branch --depth 1 "$clean_url" > /dev/null 2> /dev/null &
+  git clone --branch "$tag_number" --single-branch --depth 1 "$clean_url"
 done
 
 echo "Updating sources..."
