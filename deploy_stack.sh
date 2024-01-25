@@ -17,5 +17,5 @@ else
     --config-source stack.zip \
     --force
 fi
-oci resource-manager job create-plan-job \
-    --stack-id $STACK_ID
+# oci resource-manager job create-plan-job \
+#     --stack-id $STACK_ID
