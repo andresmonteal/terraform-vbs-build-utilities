@@ -18,4 +18,4 @@ provider "oci" {
 }
 EOL
 
-zip -r stack.zip . -x "*.terraform*" ".terraform/*" ".git/*" "backend.tf"
+zip -r stack.zip . -x "*.terraform*" ".terraform/*" ".git/*" "backend.tf" "*.tfvars"
