@@ -4,7 +4,7 @@ COMPARTMENT=$2
 export COMPARTMENT_OCID=$(oci iam compartment list --compartment-id-in-subtree true --all --output json | jq -r --arg name "$COMPARTMENT" '.data | map(select(.name == $name))[0]?.id')
 
 export STACK_ID=$(oci resource-manager stack list --all --compartment-id $COMPARTMENT_OCID | jq ".data[] | select(.\"display-name\"==\"$STACK_NAME\").id" -r)
-zip -r stack.zip . -x "*.terraform*" ".terraform/*" ".git/*" "backend.tf"
+
 if [ -z "$STACK_ID" ]; then
     export STACK_ID=$(oci resource-manager stack create \
     --compartment-id $COMPARTMENT_OCID \
