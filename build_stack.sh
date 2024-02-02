@@ -1,4 +1,5 @@
 file_path=$1
+ignore_tags=$2
 
 processed_urls=()  # Initialize an empty array to store processed URLs
 
@@ -22,7 +23,7 @@ cat <<EOL > provider.tf
 provider "oci" {
   auth   = "InstancePrincipal"
   region = var.region
-  ignore_defined_tags = ["Oracle-Tags.CreatedBy", "Oracle-Tags.CreatedOn"]
+  ignore_defined_tags = ["Oracle-Tags.CreatedBy", "Oracle-Tags.CreatedOn", $ignore_tags]
 }
 EOL
 
