@@ -16,6 +16,7 @@ cat <<EOL > provider.tf
 provider "oci" {
   auth   = "InstancePrincipal"
   region = var.region
+  ignore_defined_tags = ["Oracle-Tags.CreatedBy", "Oracle-Tags.CreatedOn"]
 }
 EOL
 
